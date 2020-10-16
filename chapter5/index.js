@@ -149,7 +149,7 @@ var validataFunc = function(){
 	// 校验器
 	var validator = new Validator();
 	// 添加校验规则
-	validator.add(registerForm.username,'isNonEmpty','用户名不能为空');
+	validator.add(registerForm.userName,'isNonEmpty','用户名不能为空');
 	validator.add(registerForm.password,'minLength:6','密码长度不能少于6位');
 	validator.add(registerForm.phoneNumber,'isMobile','手机号格式不正确');
 	var errorMsg = validator.start();
@@ -157,14 +157,13 @@ var validataFunc = function(){
 }
 
 var registerForm = document.getElementById('registerForm');
-registerForm.onsubmit = function(event){
+console.log('')
+registerForm.onsubmit = function(){
 	var errorMsg = validataFunc();
-	event.preventDefault();
-	return false;
-	// if(errorMsg){
-	// 	console.log(errorMsg);
-	// 	return false;
-	// }
+	if(errorMsg){
+		alert(errorMsg);
+		return false;
+	}
 }
 
 var Validator = function(){
