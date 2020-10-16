@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>策略模式</title>
+	<style type="text/css">
+		html,body{
+			height: 100%;
+		}
+	</style>
+	<script type="text/javascript">
+		function fun(){
+			return false;
+		}
+	</script>
+</head>
+<body>
+	<div style="position: absolute;background: blue" id="div">
+		我是div
+	</div>
+	<form action="" id="registerForm" method="post" style="margin-top: 30px" onsubmit="return fun()">
+		请输入用户名： <input type="text" name="userName"/ >
+		请输入密码： <input type="text" name="password"/ >
+
+		请输入手机号码： <input type="text" name="phoneNumber"/ >
+		<button type="submit">提交</button>
+	</form>
+</body>
+<script type="text/javascript" src="index.js"></script>
+</html>
