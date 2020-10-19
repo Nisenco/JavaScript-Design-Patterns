@@ -169,15 +169,34 @@ registerForm.onsubmit = function(){
 var Validator = function(){
 	this.cache = []; // 保存校验规则
 };
-Validator.prototype.add = function(dom,rule,errorMsg){
-	var ary = rule.split(':');
-	this.cache.push(function(){
-		var strategy = ary.shift();
-		ary.unshift(dom.value);
-		ary.push(errorMsg);
-		console.log(ary,'----errorMsg-----');
-		return strategies[strategy].apply(dom,ary)
-	});
+Validator.prototype.add = function(dom,rules){
+// Validator.prototype.add = function(dom,rule,errorMsg){
+	// 只能添加单个校验条件
+	// var ary = rule.split(':');
+	// this.cache.push(function(){
+	// 	var strategy = ary.shift();
+	// 	ary.unshift(dom.value);
+	// 	ary.push(errorMsg);
+	// 	console.log(ary,'----errorMsg-----');
+	// 	return strategies[strategy].apply(dom,ary)
+	// });
+
+	// 添加多个校验条件
+	var self = this;
+	for(var i = 0, rule; rule = rules[i++]; ){
+		(function(rule){
+			var strategyAry = rule.split(':');
+			var errorMsg = rule.errorMsg;
+			self.cache.push(function(){
+				var strategy = strategyAry.shift();
+				strategyAry.unshift(dom.value);
+				strategyAry.push(errorMsg);
+				console.log(ary,'----errorMsg-----');
+				return strategies[strategy].apply(dom,strategyAry)
+			})
+		})(rule)
+	}
+
 }
 Validator.prototype.start = function(){
 	for(var i = 0, validataFunc; validataFunc= this.cache[i++];){
