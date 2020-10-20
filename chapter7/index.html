@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>迭代器模式，发布-订阅模式</title>
+</head>
+<body>
+<button id="count">点击我</button>
+<div id= 'show'></div>
+</body>
+<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript">
+		var a = (function(){
+			var count = 0;
+			var button = document.getElementById('count');
+			button.onclick = function(){
+				Event.trigger('add',count++);
+			}
+		})();
+		var b = (function(){
+			var div = document.getElementById('show');
+			Event.listen('add',function(count){
+				div.innerHTML = count;
+			})
+		})();
+	</script>
+</html>
