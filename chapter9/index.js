@@ -125,15 +125,18 @@ Function.prototype.after = function(){
 		return ret;
 	}
 }
-var order = order500yuan.after( order200yuan ).after( orderNormal );
-order( 1, true, 500 ); // 输出： 500 元定金预购，得到 100 优惠券
+// var order = order500yuan.after( order200yuan ).after( orderNormal );
+// order( 1, true, 500 ); // 输出： 500 元定金预购，得到 100 优惠券
 
 // 中介者模式
 //  泡泡糖游戏 -- 中介者模式例子
 
-function Player(name){
+function Player(name,teamColor){
 	this.name = name;
-	this.enemy = null;
+	this.partners = [];
+	this.enemies = [];
+	this.state = 'live';
+	this.teamColor = teamColor; // 队伍颜色
 }
 
 Player.prototype.win = function (){
@@ -142,7 +145,18 @@ Player.prototype.win = function (){
 Player.prototype.lose = function(){
 	console.log(this.name + 'lost');
 }
-Player.prototype.die = function (){
-	this.lose();
-	this.enemy.win();
+// Player.prototype.die = function (){
+// 	var all_dead = true;
+// 	this.state = 'dead';
+// 	for(var i = 0, length1 = array.length; i < length1; i++){
+// 		array[i]
+// 	}
+// }
+
+var Upload = function(filename){
+	this.plugin = plugin;
+	this.filename = filname;
+	this.button1 = null;
+	this.button2 = null;
+	this.state = 'sign';
 }

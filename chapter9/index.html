@@ -6,22 +6,30 @@
 </head>
 
 <body>
-   <!--  <button id="button1">点击按钮 1</button>
+    <!--  <button id="button1">点击按钮 1</button>
     <button id="button2">点击按钮 2</button>
     <button id="button3">点击按钮 3</button> -->
 
     <body>
-        <div id="ball" style="position:absolute;background:#000;width:50px;height:50px;top: 40px"></div>
-        输入小球移动后的位置： <input id="pos" />
+        <!-- <div id="ball" style="position:absolute;background:#000;width:50px;height:50px;top: 40px"></div>
+        输入小球移动后的位置： <input id="pos" /> -->
         <button id="moveBtn">开始移动</button>
+        <div style="margin-top: 20px">
+            选择颜色: <select id="colorSelect">
+                <option value="">请选择</option>
+                <option value="red">红色</option>
+                <option value="blue">蓝色</option>
+            </select>
+            输入购买数量: <input type="text" id="numberInput" />
+            您选择了颜色: <div id="colorInfo"></div><br />
+            您输入了数量: <div id="numberInfo"></div><br />
+            <button id="nextBtn" disabled="true">请选择手机颜色和购买数量</button>
+        </div>
     </body>
 </body>
-
 <!-- <script type="text/javascript" src="../chapter5/index.js"></script> -->
 <script type="text/javascript" src='index.js'></script>
 <script>
-
-
 // var button1 = document.getElementById('button1');
 //     var button2 = document.getElementById('button2');
 //         var button3 = document.getElementById('button3');
@@ -31,7 +39,6 @@
 // setCommand(button1, refreshMenuBarCommand);
 // setCommand(button2, addSubMenuCommand);
 // setCommand(button3, delSubMenuCommand);
-
-
 </script>
+
 </html>
